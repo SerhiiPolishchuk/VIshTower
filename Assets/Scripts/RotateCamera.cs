@@ -2,7 +2,7 @@
 
 public class RotateCamera : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed;
     private Transform _rotator;
 
     private void Start()

@@ -1,16 +1,25 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[Serializable]
 public class ExplodeCubes : MonoBehaviour
 {
-    public GameObject restartButton;
+    public GameObject restartButton, explosion;
     public Transform mainCamera;
 
     private bool _collisionSet = false;
+        
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Cube" && !_collisionSet)
+        if (collision.gameObject.tag == "Cube" && !_collisionSet)
         {
-            for(int i = collision.transform.childCount - 1; i >= 0; i--)
+            GameObject newVvfx = Instantiate(explosion, collision.contacts[0].point, Quaternion.identity) as GameObject;
+            Destroy(newVvfx, 2.5f);
+
+            if (PlayerPrefs.GetString("music") != "No")
+                GetComponent<AudioSource>().Play();
+
+            for (int i = collision.transform.childCount - 1; i >= 0; i--)
             {
                 Transform child = collision.transform.GetChild(i);
                 child.gameObject.AddComponent<Rigidbody>();
@@ -19,10 +28,12 @@ public class ExplodeCubes : MonoBehaviour
             }
 
             restartButton.SetActive(true);
-            mainCamera.localPosition += new Vector3(0, 0, -3);
+
+            Camera.main.gameObject.AddComponent<CameraShake>();
 
             Destroy(collision.gameObject);
             _collisionSet = true;
         }
     }
+
 }
