@@ -344,7 +344,10 @@
 "Assets/Scripts/ExplodeCubes.cs"
 "Assets/Scripts/GameController.cs"
 "Assets/Scripts/MyCube.cs"
+"Assets/Scripts/PrefCube.cs"
 "Assets/Scripts/RotateCamera.cs"
+"Assets/Scripts/ShopController.cs"
+"Assets/Scripts/TouchTracking.cs"
 -langversion:9.0
 
 /deterministic

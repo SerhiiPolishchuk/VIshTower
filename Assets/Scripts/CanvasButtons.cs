@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class CanvasButtons : MonoBehaviour
 {
     public Sprite musicOn, musicOff;
+    public AudioSource firstMusic, secondMusic;
+    public GameObject gc;
+
     private void Start()
     {
         if (PlayerPrefs.GetString("music") == "No" && gameObject.name == "Sound")
@@ -29,6 +32,16 @@ public class CanvasButtons : MonoBehaviour
     {
         if (PlayerPrefs.GetString("music") != "No")
             GetComponent<AudioSource>().Play();
+
+        SceneManager.LoadScene("Shop");
+    }
+
+    public void CloseShop()
+    {
+        if (PlayerPrefs.GetString("music") != "No")
+            GetComponent<AudioSource>().Play();
+
+        SceneManager.LoadScene("Main");
     }
 
     public void LoadInstagramV()
@@ -54,11 +67,31 @@ public class CanvasButtons : MonoBehaviour
             PlayerPrefs.SetString("music", "Yes");
             GetComponent<Image>().sprite = musicOn;
             GetComponent<AudioSource>().Play();
+
+            if (SceneManager.GetActiveScene().name == "Shop")
+                firstMusic.Play();
+            else
+            {
+                if (!gc.GetComponent<GameController>().firstCube)
+                    firstMusic.Play();
+                else
+                    secondMusic.Play();
+            }
         }
         else
         {
             PlayerPrefs.SetString("music", "No");
             GetComponent<Image>().sprite = musicOff;
+
+            if (SceneManager.GetActiveScene().name == "Shop")
+                firstMusic.Stop();
+            else
+            {
+                if (!gc.GetComponent<GameController>().firstCube)
+                    firstMusic.Stop();
+                else
+                    secondMusic.Stop();
+            }
         }
     }
 }

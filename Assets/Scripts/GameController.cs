@@ -1,36 +1,42 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    private CubePos nowCube = new CubePos(0, 1, 0);
+    private CubePos nowCube = new CubePos(0, 0, 0);
     public float cubeChangePlaceSpeed = 0.7f;
     public Transform cubeToPlace;
     private float camMoveYPosition, camMoveSpeed = 2f;
     public float camMoveZPosition;
     private CubePos startCamPosition;
 
-    public GameObject cubeToCreate, allCubes, vfx;
+    public GameObject[] cubesToCreate;
+    public GameObject allCubes, vfx;
     private Rigidbody allCubesRB;
 
     public Color[] bgColors;
     private Color toCameraColor;
 
     private Coroutine showCubeToPlace;
-    private bool isLose = false, firstCube;
-    private int score = 1;
+    public bool isLose = false, firstCube;
+    //private int score = 0;
     
-    public GameObject logo, tapToPlay, instaV, instaS, shop;
+    public GameObject logo, tapToPlay, instaV, instaS, shop, restartButton;
     private Animator logoAnim, tapToPlayAnim, instaVAnim, instaSAnim, shopAnim;
 
+    public TMP_Text Score, BestScore;
+
     private Transform mainCam;
+    public AudioSource firstMusic, secondMusic;
 
     private List<CubePos> allCubesPositions = new List<CubePos>
     {
-        new CubePos(0, 1, 0)
+        //new CubePos(0, 1, 0)
     };
 
     private List<CubePos> possiblePossitions;
@@ -48,20 +54,23 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.GetString("music") != "No")
+            firstMusic.Play();
+
         mainCam = Camera.main.transform;
         startCamPosition.setVector(mainCam.position);
 
-        camMoveYPosition = startCamPosition.y + nowCube.y - 1f;
+        camMoveYPosition = startCamPosition.y;
         camMoveZPosition = startCamPosition.z;
 
         allCubesRB = allCubes.GetComponent<Rigidbody>();
 
         toCameraColor = Camera.main.backgroundColor;
-
+               
         var renderer = cubeToPlace.gameObject.GetComponent<Renderer>();
         renderer.material.shader = Shader.Find("Transparent/Diffuse");
-        renderer.material.color = new Color(0F, 121F, 245F) * 0.5f;
-
+        renderer.material.color = cubesToCreate[PlayerPrefs.GetInt("ActiveCube")].GetComponent<Renderer>().sharedMaterial.color * 0.5f;
+        
         RefreshPossiblePossitions();
         showCubeToPlace = StartCoroutine(ShowCubeToPlace());
     }
@@ -71,6 +80,7 @@ public class GameController : MonoBehaviour
         if((Input.GetMouseButtonDown(0) || Input.touchCount > 0) 
                 && cubeToPlace != null 
                 && allCubes != null 
+                && allCubesRB != null
                 && !EventSystem.current.IsPointerOverGameObject())
         {
 #if !UNITY_EDITOR
@@ -96,9 +106,20 @@ public class GameController : MonoBehaviour
 
                 shopAnim = shop.GetComponent<Animator>();
                 shopAnim.Play("ShopPutAway");
+
+                Score.gameObject.SetActive(true);
+                BestScore.gameObject.SetActive(true);
+
+                if (PlayerPrefs.GetString("music") != "No")
+                {
+                    firstMusic.Stop();
+                    secondMusic.Play();
+                }
             }
 
-            GameObject newCube = Instantiate(cubeToCreate, cubeToPlace.position, Quaternion.identity) as GameObject;
+            print(PlayerPrefs.GetInt("ActiveCube"));
+
+            GameObject newCube = Instantiate(cubesToCreate[PlayerPrefs.GetInt("ActiveCube")], cubeToPlace.position, Quaternion.identity) as GameObject;
             
             newCube.transform.SetParent(allCubes.transform);
             nowCube.setVector(cubeToPlace.position);
@@ -106,14 +127,17 @@ public class GameController : MonoBehaviour
 
             GameObject newVvfx = Instantiate(vfx, cubeToPlace.position, Quaternion.identity) as GameObject;
             Destroy(newVvfx, 1.5f);
-
+            
             if (PlayerPrefs.GetString("music") != "No")
                 GetComponent<AudioSource>().Play();
 
             allCubesRB.isKinematic = true;
             allCubesRB.isKinematic = false;
 
-            score++;
+            //allCubes.GetComponent<Rigidbody>().AddExplosionForce(1f, possibleVectors[UnityEngine.Random.Range(0, possibleVectors.Count)].GetVector(), 1f);
+            allCubes.GetComponent<Rigidbody>().AddExplosionForce(10f, Vector3.down, 1f);
+
+            //score++;
             cubeChangePlaceSpeed -= 0.007f;
             
             calcNewCameraPosChangeBg();
@@ -121,12 +145,18 @@ public class GameController : MonoBehaviour
             SpawnPositions();            
         }
 
-        if(!isLose && allCubesRB.velocity.magnitude > 0.1f)
+        if(!isLose && ((allCubes != null
+                        && allCubesRB != null 
+                        && allCubesRB.velocity.magnitude > 0.2f 
+                        && allCubes.transform.childCount > 0) || allCubes == null))
         {
             Destroy(cubeToPlace.gameObject);
             isLose = true;
             StopCoroutine(showCubeToPlace);
             camMoveZPosition -= 5;
+            camMoveYPosition = startCamPosition.y;
+
+            restartButton.SetActive(true);
         }
 
         mainCam.localPosition = Vector3.MoveTowards(mainCam.localPosition,
@@ -162,12 +192,30 @@ public class GameController : MonoBehaviour
 
     private void RefreshPossiblePossitions()
     {
-        possiblePossitions = new List<CubePos>();
-
-        foreach (CubePos possibleVect in possibleVectors)
+        if (nowCube == new CubePos(0, 0, 0))
         {
-            if (IsPositionEmpty(nowCube + possibleVect))
-                possiblePossitions.Add(nowCube + possibleVect);
+            possiblePossitions = new List<CubePos>
+            {
+                new CubePos(1, 1, 0),
+                new CubePos(-1, 1, 0),
+                new CubePos(1, 1, 1),
+                new CubePos(-1, 1, 1),
+                new CubePos(1, 1, -1),
+                new CubePos(-1, 1, -1),
+                new CubePos(0, 1, 1),
+                new CubePos(0, 1, -1),
+                new CubePos(0, 1, 0),
+            };
+        }
+        else
+        {
+            possiblePossitions = new List<CubePos>();
+
+            foreach (CubePos possibleVect in possibleVectors)
+            {
+                if (IsPositionEmpty(nowCube + possibleVect))
+                    possiblePossitions.Add(nowCube + possibleVect);
+            }
         }
 
         currentPPIndex = possiblePossitions.Count == 0 ? -1 : 0;
@@ -206,6 +254,12 @@ public class GameController : MonoBehaviour
             if (allCubesPositions[i].y > maxY)
                 maxY = allCubesPositions[i].y;
         }
+
+        if (PlayerPrefs.GetInt("score") < maxY)
+            PlayerPrefs.SetInt("score", maxY);
+
+        Score.text = $"Score: {maxY}";
+        BestScore.text = $"Best Score: {PlayerPrefs.GetInt("score")}";
 
         maxCountHorizontal = maxX > maxZ ? maxX : maxZ;
 

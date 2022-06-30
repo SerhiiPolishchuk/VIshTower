@@ -1,10 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
 public class ExplodeCubes : MonoBehaviour
 {
-    public GameObject restartButton, explosion;
+    public GameObject explosion, restartButton;
     public Transform mainCamera;
 
     private bool _collisionSet = false;
@@ -27,7 +26,7 @@ public class ExplodeCubes : MonoBehaviour
                 child.SetParent(null);
             }
 
-            restartButton.SetActive(true);
+            //restartButton.SetActive(true);
 
             Camera.main.gameObject.AddComponent<CameraShake>();
 
