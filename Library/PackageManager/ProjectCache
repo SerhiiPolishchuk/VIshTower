@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637919964129369327
-    m_Hash: 3539026328
+      ticks: 637922865108757226
+    m_Hash: 4101377518
   m_LockFileStatus:
     m_FilePath: E:/Programming/GitHub/VIshTower/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637919964391012908
-    m_Hash: 2981134960
+      ticks: 637922865109307727
+    m_Hash: 1790970524
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,6 +22,112 @@ m_LocalPackages:
 m_ProjectPath: E:/Programming/GitHub/VIshTower/Packages
 m_EditorVersion: 2021.3.5f1 (40eb3a945986)
 m_ResolvedPackages:
+- packageId: com.unity.ads@4.2.1
+  testable: 0
+  isDirectDependency: 1
+  version: 4.2.1
+  source: 1
+  resolvedPath: E:\Programming\GitHub\VIshTower\Library\PackageCache\com.unity.ads@4.2.1
+  assetPath: Packages/com.unity.ads
+  name: com.unity.ads
+  displayName: Advertisement
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: Unity Ads is a video ad network for iOS and Android that allows you
+    to quickly and effectively monetize your games.
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 0.0.3
+    - 0.0.4
+    - 0.0.5
+    - 0.0.6
+    - 0.0.7
+    - 0.0.8
+    - 0.0.10
+    - 0.0.11
+    - 0.0.12
+    - 0.0.13
+    - 0.0.14
+    - 0.0.15
+    - 0.0.16
+    - 2.0.0
+    - 2.0.3
+    - 2.0.4
+    - 2.0.7
+    - 2.0.8
+    - 2.3.1
+    - 2.3.2
+    - 3.0.1
+    - 3.0.2
+    - 3.0.3
+    - 3.1.1
+    - 3.2.0
+    - 3.3.0
+    - 3.3.1
+    - 3.4.0
+    - 3.4.1
+    - 3.4.2
+    - 3.4.4
+    - 3.4.5
+    - 3.4.7
+    - 3.4.9
+    - 3.5.0
+    - 3.5.2
+    - 3.6.1
+    - 3.7.0
+    - 3.7.1
+    - 3.7.3
+    - 3.7.5
+    - 4.0.0
+    - 4.0.1
+    - 4.1.0
+    - 4.2.1
+    compatible:
+    - 3.7.5
+    - 4.0.0
+    - 4.0.1
+    - 4.1.0
+    - 4.2.1
+    verified: 3.7.5
+  dependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.modules.ui
+    version: 1.0.0
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  keywords:
+  - ads
+  - unity
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637885795760000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.com/Unity-Technologies/unity-ads-sdk.git
+    revision: 2394887e7494a4c082ca090c392bf622ca3f58a9
+    path: 
+  unityLifecycle:
+    version: 3.7.5
+    nextVersion: 
 - packageId: com.unity.collab-proxy@1.15.18
   testable: 0
   isDirectDependency: 1

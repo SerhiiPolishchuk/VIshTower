@@ -172,6 +172,18 @@ MonoBehaviour:
   txt: {fileID: 424485874}
   bEnabled: 0
   currentNumber: 9
+--- !u!114 &84495749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84495738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03c393d8229306489171149d902896d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &184678516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 440613663767371787, guid: fab55901f50530147b8c91986b4fae7a,
@@ -221,6 +233,18 @@ MonoBehaviour:
   txt: {fileID: 262449821}
   bEnabled: 0
   currentNumber: 7
+--- !u!114 &184678527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184678516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03c393d8229306489171149d902896d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &214695433
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +531,7 @@ GameObject:
   - component: {fileID: 369289537}
   - component: {fileID: 369289538}
   - component: {fileID: 369289539}
+  - component: {fileID: 369289540}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Cube
@@ -629,6 +654,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &369289540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369289533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03c393d8229306489171149d902896d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &421022016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1218,7 @@ GameObject:
   - component: {fileID: 591757798}
   - component: {fileID: 591757799}
   - component: {fileID: 591757800}
+  - component: {fileID: 591757801}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Cube
@@ -1303,6 +1341,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &591757801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591757794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03c393d8229306489171149d902896d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,6 +1817,7 @@ GameObject:
   - component: {fileID: 948749395}
   - component: {fileID: 948749396}
   - component: {fileID: 948749397}
+  - component: {fileID: 948749398}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Cube
@@ -1889,6 +1940,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &948749398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948749391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03c393d8229306489171149d902896d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2742,6 +2805,7 @@ GameObject:
   - component: {fileID: 1500927331}
   - component: {fileID: 1500927332}
   - component: {fileID: 1500927333}
+  - component: {fileID: 1500927334}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Cube
@@ -2864,6 +2928,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1500927334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500927327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03c393d8229306489171149d902896d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1571869789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,6 +2954,7 @@ GameObject:
   - component: {fileID: 1571869793}
   - component: {fileID: 1571869794}
   - component: {fileID: 1571869795}
+  - component: {fileID: 1571869796}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Cube
@@ -3000,6 +3077,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1571869796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571869789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03c393d8229306489171149d902896d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1584917900 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4942811237329063543, guid: 2cbb12ab4d3d374478c96ddbdeec46cf,
@@ -3049,6 +3138,18 @@ MonoBehaviour:
   txt: {fileID: 1086646739}
   bEnabled: 0
   currentNumber: 8
+--- !u!114 &1584917911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584917900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03c393d8229306489171149d902896d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1647767795
 GameObject:
   m_ObjectHideFlags: 0
@@ -3296,6 +3397,18 @@ MonoBehaviour:
   txt: {fileID: 214695435}
   bEnabled: 0
   currentNumber: 6
+--- !u!114 &1998660951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998660940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03c393d8229306489171149d902896d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2023574544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,6 +3736,7 @@ GameObject:
   - component: {fileID: 2109052797}
   - component: {fileID: 2109052798}
   - component: {fileID: 2109052799}
+  - component: {fileID: 2109052800}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Cube
@@ -3745,6 +3859,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2109052800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109052793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03c393d8229306489171149d902896d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &440613663951837311
 PrefabInstance:
   m_ObjectHideFlags: 0

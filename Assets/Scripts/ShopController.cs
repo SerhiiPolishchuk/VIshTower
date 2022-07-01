@@ -16,11 +16,6 @@ public class ShopController : MonoBehaviour
     private void Update()
     {
         foreach (Transform cube in cubes)
-            cube.Rotate(0, 0.5f * speed * Time.deltaTime, speed * Time.deltaTime);
-
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            print("object name");
-        }
+            cube.Rotate(0, 0.5f * speed * Time.deltaTime, speed * Time.deltaTime);                
     }
 }
